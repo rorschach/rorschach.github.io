@@ -1,7 +1,7 @@
 # Site settings
 title: Rorschach Blog
 SEOTitle: 黄磊的博客 | Rorschach Blog
-header-img: img/blog-bg-deer.jpg
+header-img: img/home-bg.jpg
 email: rorschach.loliopop@gmail.com
 description: "关于Android及Python的学习，喜欢开源，期待成为一个温柔而有趣的人"
 keyword: "黄磊，Rorschach，Android，Python"
@@ -62,7 +62,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "写写代码，学学设计，思考思考人生"
-sidebar-avatar: /img/avatar-main.png     # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-test.png     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
