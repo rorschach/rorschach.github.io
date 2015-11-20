@@ -1,22 +1,22 @@
 # Site settings
-title: Hux Blog
-SEOTitle: 黄玄的博客 | Hux Blog
-header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
-url: "http://huangxuan.me"              # your host, for absolute URL
+title: Rorschach Blog
+SEOTitle: 黄磊的博客 | Rorschach Blog
+header-img: img/blog-bg-deer.jpg
+email: rorschach.loliopop@gmail.com
+description: "关于Android及Python的学习，喜欢开源，期待成为一个温柔而有趣的人"
+keyword: "黄磊，Rorschach，Android，Python"
+             # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
+weibo_username:     三声蘸酱
+zhihu_username:     夜的第七章
+github_username:    rorschach
 #twitter_username:  huxpro
-facebook_username:  huxpro
+facebook_username:  黄磊
 
 
 
@@ -43,7 +43,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: huxblog
+duoshuo_username: rorschach blog
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -52,17 +52,17 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+#ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_domain: huangxuan.me
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，多玩玩看看。"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "写写代码，学学设计，思考思考人生"
+sidebar-avatar: /img/avatar-main.png     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -72,25 +72,4 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 
 
-# Friends
-friends: [
-    {
-        title: "天镶的博客",
-        href: "http://lingyu.wang/"
-    },{
-        title: "Luke的自留地",
-        href: "http://hmqk1995.github.io"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "解旻的博客",
-        href: "http://xieminis.me/"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
-    },{
-        title: "尹峰以为",
-        href: "http://ingf.github.io/"
-    }
-]
+
