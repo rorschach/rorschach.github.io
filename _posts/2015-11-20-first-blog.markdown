@@ -1,5 +1,4 @@
 ---
-
 layout:     post
 title:      "Title  Of My First Blog"
 subtitle:   "SubTitle"
@@ -9,5 +8,6 @@ header-img: "img/post-bg-2015.jpg"
 tags:
     - life
 ---
+
 
 Content Of My First Blog
