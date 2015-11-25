@@ -10,7 +10,8 @@ tags:
     - http
 ---
 
->
+
+要在Android中实现多线程下载和断点续传下载，只需要使用Java的API即可完成。可以简单的分为3个步骤：下载、多线程下载、断点续传。
 
 首先我们来实现下载功能，这里只需要简单的使用HttpUrlConection，因为HttpUrlConection中包含一个可以用于获取文件长度的方法 ： `conn.getContentLength()`，相对于HttpClient而言更加方便。要下载一个文件，只需根据Url得到`HttpUrlConnection`对象conn，然后使用 `conn.getInputStream()`方法即可得到一个InputStreasm对象，然后将InputStream中的数据取出即可，并写入一个文件即可。
 

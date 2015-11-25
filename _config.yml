@@ -1,7 +1,7 @@
 # Site settings
 title: Rorschach Blog
 SEOTitle: 黄磊的博客 | Rorschach Blog
-header-img: img/home-bg-art.jpg
+header-img: img/wild-night.jpg
 email: rorschach.loliopop@gmail.com
 description: "关于Android及Python的学习，喜欢开源，期待成为一个温柔而有趣的人"
 keyword: "黄磊，Rorschach，Android，Python"
@@ -12,11 +12,11 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # SNS settings
 RSS: false
-weibo_username:     三声蘸酱
-zhihu_username:     夜的第七章
+weibo_username:     u/3248824605
+zhihu_username:     ye-de-di-qi-zhang-23
 github_username:    rorschach
 #twitter_username:  huxpro
-facebook_username:  黄磊
+facebook_username:  lei.huang.7739814
 
 
 
@@ -61,8 +61,8 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，学学设计，思考思考人生"
-sidebar-avatar: /img/avatar-test.png     # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "写写代码，学学设计，\n思考思考人生"
+sidebar-avatar: /img/avatar-rorschach.jpg     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
