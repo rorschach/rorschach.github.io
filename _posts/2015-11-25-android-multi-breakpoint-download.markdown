@@ -1,4 +1,19 @@
-##Android使用HttpURLConnection实现对单个文件的多线程断点续传下载
+---
+layout:     post
+title:      "Android中的多线程下载和断点续传下载"
+subtitle:   " \"HttpURLConnection实现多线程及断点续传下载\""
+date:       2015-11-25 17:54:30
+author:     "Rorschach"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - android
+    - http
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
 
 1.根据url得到连接对象：
 
@@ -67,6 +82,10 @@
 9.下载线程中新建网络连接：
 
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    conn.setReadTimeout(10000);
+    conn.setConnectTimeout(12000);
+    conn.setRequestMethod("GET");
+    conn.setRequestProperty("Range", "bytes=" + start + "-" + end);  //设定该线程下载的区域
 
 10.获取输入流
 
@@ -76,7 +95,11 @@
 
     RandomAccessFile raf = new RandomAccessFile(fileName, "rw");
 
-12.将输入流中的数据写入文件
+12.将文件写入的位置移到startPosition
+    
+    raf.seek(start);
+
+13.将输入流中的数据写入文件
 
     byte[] buff = new byte[1024];
     int nRead = 0;
@@ -84,4 +107,5 @@
         raf.write(buff, 0, nRead);
     }
 
-##多线程下载多个文件
+
+未完待续.....
