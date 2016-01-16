@@ -4,10 +4,12 @@ title:      "Java中的数据类型"
 subtitle:   ""
 date:       2015-11-25 17:54:30
 author:     "Rorschach"
-header-img: "img/post-bg-data-type.jpg"
+header-img: "img/post-bg-video.jpg"
 tags:
     - java
 ---
+
+### 数据的存储单位
 
 bit : 位    
 >一个位能表示0和1两种状态，是计算机中最小的单位
@@ -50,7 +52,7 @@ byte：字节
     
     * 因此需要注意的是，声明long类型的变量时必须在后面加上一个`l`或者`L`
     * 下面代码会报错，实际上是类型转换的问题,因为128默认是`int`类型，这里需要强制类型转换
-```java  
+``` 
 byte b = 128;
 ```
 * Java中整型的表示范围
@@ -83,7 +85,7 @@ byte b = 128;
     因此需要注意的是，声明float类型的变量时必须在后面加上一个`f`或者`F`
 
 * 下列写法是否不同？
-```java
+```
 flaot f1 = 12.345f;
 float f2 = (float)12.345;
 ```
@@ -105,7 +107,7 @@ float f2 = (float)12.345;
 #### 布尔类型
 * boolean的取值只能为`true`或者`false`
 * boolean类型不可以和其他类型的数据进行转换，即不可以用非零的值表示`true`。下面这种写法在C语言中可行，而在Java中并不成立:
-```java
+```
 while(1){
     //do sth
 }
@@ -127,11 +129,11 @@ while(1){
 一旦数据的大小足够大，达到超过Java提供的基本数据类型的容纳范围，我们就需要使用大数来满足我们的需求
 
 * BigInteger(超过了long能够容纳的大小)
-```java
+```
 BigInteger bi = new BigInteger("234234345985690468464098708709450974957856756756755...");
 ```
 * BigDecimal(超过了double能够容纳的大小)
-```java
+```
 BigDecimal bd = new BigDecimal("3.1415926893485893658762893764982345353453453453453...");
 ```
 
@@ -155,15 +157,14 @@ BigDecimal bd = new BigDecimal("3.1415926893485893658762893764982345353453453453
 
 * 体现纯粹的面向对象的思想
 * 包装类是一个类，有字段和方法，比基本的数据类型强大
-
 ```java
 String num = "100";
 int value = Integer.parseInt(num);
 ```
 * JDK1.5之后，系统实现了自动装箱和自动拆箱，方便了基本数据类型和包装类之间的转换
 ```java
-Integer i1 = new Integer(123);      //装箱
-int i2 = Integer.intValue();        //拆箱
+Integer i1 = new Integer(123);     
+int i2 = Integer.intValue();        
 ```
 
 
