@@ -3,7 +3,7 @@ title: Rorschach Blog
 SEOTitle: 黄磊的博客 | Rorschach Blog
 header-img: img/wild-night.jpg
 email: rorschach.loliopop@gmail.com
-description: "关于Android及Python的学习，喜欢开源，期待成为一个温柔而有趣的人"
+description: "期待成为一个温柔而有趣的人"
 keyword: "黄磊，Rorschach，Android，Python"
              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -43,9 +43,9 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: rorschach blog
+# duoshuo_username: rorschach blog
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
 
@@ -61,7 +61,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，学学设计，\n思考思考人生"
+sidebar-about-description: "写代码，学设计\n思考人生"
 sidebar-avatar: /img/avatar-rorschach.jpg     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
