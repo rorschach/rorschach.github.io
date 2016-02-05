@@ -4,7 +4,7 @@ title:      "Android中Activity栈及Activity的启动方式"
 subtitle:   "读书笔记"
 date:       2015-11-25 17:54:30
 author:     "Rorschach"
-header-img: "img/post-bg-data-type.jpg"
+header-img: "img/post-bg-launch-mode.jpg.jpg"
 tags:
     - Android
 ---
@@ -26,7 +26,9 @@ tags:
 - [在 Android Manifest 文件中指定](#manifest) 
 - [使用 Intent Flag 指定](#flag) 
 
-##### Manifest 中指定<p id = "manifest"></p>
+<p id = "manifest"></p>
+---
+##### Manifest 中指定
 
 - standard
 
@@ -80,7 +82,7 @@ tags:
     | B  |
     | A  |
 
-    启动模式为`singleTask`的`Activity`A,则
+    启动模式为`singleTask`的`Activity`A，则
 
     |before|after|
     |:----:|:---:|
@@ -130,7 +132,8 @@ tags:
         |  Y  |          |  X         |          |            |
         |  X  |          |            |          |            |
 
-        **该模式可用于退出app：将主Activity设置为`singleTask`，在要退出的Activity中跳转主Activity，从而清除主Activity上的所有Activity，再重写主Activity的`newIntent()`方法，在其中增加 `finish()`，从而结束整个app。**
+        **小技巧**：该模式可用于退出app。<br>
+        将主Activity设置为`singleTask`，在要退出的Activity中跳转主Activity，从而清除主Activity上的所有Activity，再重写主Activity的`newIntent()`方法，在其中增加 `finish()`，从而结束整个app。
 
     典型使用场景：邮件app中的收件箱Activity
 
@@ -141,4 +144,6 @@ tags:
 
     典型使用场景：桌面启动器launcher
 
-##### Intent Flag 指定<p id = "flag"></p>
+<p id = "flag"></p>
+---
+##### Intent Flag 指定
