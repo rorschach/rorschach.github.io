@@ -2,7 +2,7 @@
 layout:     post
 title:      "Android中Activity的生命周期"
 subtitle:   "读书笔记"
-date:       2015-11-25 17:54:30
+date:       2016-2-5 21:13:30
 author:     "Rorschach"
 header-img: "img/post-bg-data-type.jpg"
 tags:
