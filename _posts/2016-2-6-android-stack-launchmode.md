@@ -2,7 +2,7 @@
 layout:     post
 title:      "Android中Activity栈及Activity的启动方式"
 subtitle:   "读书笔记"
-date:       2015-11-25 17:54:30
+date:       2016-2-6 23:13:30
 author:     "Rorschach"
 header-img: "img/post-bg-launch-mode.jpg.jpg"
 tags:
