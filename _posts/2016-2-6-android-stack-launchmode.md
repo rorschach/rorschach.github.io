@@ -4,7 +4,7 @@ title:      "Android中Activity栈及Activity的启动方式"
 subtitle:   "读书笔记"
 date:       2016-2-6 23:13:30
 author:     "Rorschach"
-header-img: "img/post-bg-launch-mode.jpg.jpg"
+header-img: "img/post-bg-launch-mode.jpg"
 tags:
     - Android
 ---
