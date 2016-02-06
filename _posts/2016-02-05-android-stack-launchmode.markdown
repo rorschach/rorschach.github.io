@@ -9,7 +9,7 @@ tags:
     - Android
 ---
 
-#### 任务及回退栈
+### 任务及回退栈
 
 一个应用程序通常包括多个Activity，每个Activity都应该对应用户的某种特殊的行为或者需求。
 
@@ -19,7 +19,7 @@ tags:
 
 **值的注意的是，一个`Task`中的`Activity`可以来自不同的App，同一个App中的`Activity`也可以出现在不同的`Task`中**。<br>例如在你自己的App中跳转系统Activity，被启动的系统的Activity也会被添加到你自己的App的栈中。
 
-#### 启动模式
+### 启动模式
 
 默认情况下，当在同一个`Task`中启动新的Activity时，将一个新的Activity的实例入栈，使其处于栈顶，获取焦点，前一个Activity仍然留在该任务栈中；当用户按下返回键时，将栈顶Activity出栈，前一个Activity处于栈顶并获取焦点。我们有以下两种方式修改Activity的启动模式：
 
@@ -28,7 +28,7 @@ tags:
 
 <p id = "manifest"></p>
 ---
-##### Manifest 中指定
+#### Manifest 中指定
 
 ```
 <activity
@@ -162,7 +162,7 @@ tags:
 
 <p id = "flag"></p>
 ---
-##### Intent Flag 指定
+#### Intent Flag 指定
 
 ```
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
@@ -215,13 +215,13 @@ startActivity(intent);
     等同于在`manifest`文件中指定`android:excludeFromRecents=true`
 
 
-##### 两种方式的区别
+#### 两种方式的区别
 
 - `flag`的优先级高于`manifest`文件中指定
 - `flag`方式无法指定`singleInstance`
 - `manifest`无法指定`Intent.FLAG_ACTIVITY_CLEAR_TOP`
 
-#### Task＆taskAffinity
+### Task＆taskAffinity
 
 上文中多次提到`Task`，即`任务栈`，那什么是一个`Task`呢？这就涉及到一个`manifest`文件中的参数`taskAffinity`，翻译为　任务相关性。该参数标识了一个`Activity`需要的任务栈的名字，默认为包名。该参数主要与`singleTask`及`allowTaskReparenting`想配对使用，否则无意义。
 
@@ -233,7 +233,7 @@ startActivity(intent);
     
     当一个App A 启动　App B中的一个`Activity`时，若该`Activity`的属性为`andoid:allowTaskReparenting=true`的话，那么App B被启动后，该`Activity`会从App A的任务栈转移到App B的任务栈中。
 
-#### 清空任务栈
+### 清空任务栈
 
 系统提供了以下几种方式清空任务栈,均设置于`manifest`文件中
 
