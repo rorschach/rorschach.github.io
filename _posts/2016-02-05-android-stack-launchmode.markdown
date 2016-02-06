@@ -28,7 +28,7 @@ tags:
 
 <p id = "manifest"></p>
 ---
-#### Manifest 中指定
+Manifest 中指定
 
 ```
 <activity
@@ -162,7 +162,7 @@ tags:
 
 <p id = "flag"></p>
 ---
-#### Intent Flag 指定
+Intent Flag 指定
 
 ```
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
