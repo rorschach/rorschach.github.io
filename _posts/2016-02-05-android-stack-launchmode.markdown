@@ -155,7 +155,9 @@ tags:
 
     对于singleTask和singleInstance两种启动模式，如果有一个处于其中一种模式的`Activity`A，希望通过`startActivityForResult()`的方式来启动一个`Activity`B，则系统将直接返回`Activity.RESULT_CANCELED`，而不会去等待数据的返回。因为不同`Task`直接默认是不能传递数据的，故不会有数据返回。
 
+
     startActivityForResult()
+    
     >Note that this method should only be used with Intent protocols that are defined to return a result. In other protocols (such as Intent.ACTION_MAIN or Intent.ACTION_VIEW), you may not get the result when you expect. For example, if the activity you are launching uses the singleTask launch mode, it will not run in your task and thus you will immediately receive a cancel result. 
 
 <p id = "flag"></p>
