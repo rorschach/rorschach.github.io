@@ -29,7 +29,9 @@ tags:
     android:name="me.rorschach.contentproviderdemo.PersonProvider" />
 ```
 
-`ContentProvider`对象为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过一下代码在客户端中得到`ContentResolver`对象：
+
+`ContentProvider`对象为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过一下代码在客户端中得到`ContentResolver`对象
+
 ```
 ContentResolver cr = ContextWrapper.getContentResolver();
 ```
@@ -168,6 +170,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     }
 }
 ```
+
 
 ```
 public class Person {
