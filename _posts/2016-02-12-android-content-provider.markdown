@@ -6,7 +6,7 @@ date:       2016-02-11 20:00:00
 author:     "Rorschach"
 header-img: "img/post-bg-content-provider.jpg"
 tags:
-    - Android
+    - android
 ---
 
 ## 概述

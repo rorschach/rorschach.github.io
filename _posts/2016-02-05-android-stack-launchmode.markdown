@@ -6,7 +6,7 @@ date:       2016-02-05 21:00:00
 author:     "Rorschach"
 header-img: "img/post-bg-stack.jpg"
 tags:
-    - Android
+    - android
 ---
 
 ### 任务及回退栈
