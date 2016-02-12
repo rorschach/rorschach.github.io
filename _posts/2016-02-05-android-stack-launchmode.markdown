@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Android中Activity栈及Activity的启动方式"
+title:      "Activity任务栈及Activity的启动方式"
 subtitle:   "读书笔记"
 date:       2016-02-05 21:00:00
 author:     "Rorschach"

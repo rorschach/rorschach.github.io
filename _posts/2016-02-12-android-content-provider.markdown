@@ -1,24 +1,23 @@
 ---
 layout:     post
-title:      "Android中ContentProvider的用法"
+title:      "ContentProvider初探"
 subtitle:   "读书笔记"
-date:       2016-02-12 20:00:00
+date:       2016-02-11 20:00:00
 author:     "Rorschach"
 header-img: "img/post-bg-content-provider.jpg"
 tags:
     - Android
 ---
 
-# ContentProvider
+## 概述
 
 >Content providers are one of the primary building blocks of Android applications, providing content to applications. 
 
-
-Android 四大组件之一，用于给其他应用提供数据，适合进程间通信，其底层通过`Binder`实现。
+`ContentProvider`是Android 四大组件之一，用于给其他应用提供数据，适合进程间通信，其底层通过`Binder`实现。
 
 `ContentProvider`主要以表格的形式来组织数据，并且可以包含多个表，对于每个表格都有行和列的层次，这一点类似于数据库中的`Table`。除了表格的形式，`ContentProvider`还支持文件数据，例如图片，视频等。文件数据和表格数据的形式不同，因此处理此类数据时可以在`ContentProvider`中返回句柄，从而让外界访问`ContentProvider`中的文件信息。Android提供的`MediaStore`就是文件类型的`ContentProvider`，具体参考`MediaStore`。另外，虽然`ContentProvider`的底层数据看起来像`SQLite`，但实际上其对底层的数据存储方式没有任何要求，可以是一个文件，甚至可以是一个内存中的对象。
 
-## 访问ContentProvider
+## ContentProvider的访问
 
 一个应用要想访问`ContentProvider`来获得数据，必须通过`ContentResolver`对象。在需要访问数据的应用中获得`ContentResolver`对象，提供数据的应用中负责提供`ContentProvider`对象，获得`ContentResolver`对象之后这两个应用所属的进程间便自动建立了连接。
 
@@ -107,7 +106,7 @@ https://github.com/rorschach
 Uri uri = Uri.parse("content://me.rorschach.contentproviderdemo.provider/insert");
 ```
 
-## 创建ContentProvider
+## ContentProvider的创建
 
 ### 基本步骤
 
@@ -116,7 +115,7 @@ Uri uri = Uri.parse("content://me.rorschach.contentproviderdemo.provider/insert"
 1. 创建一个`ContentProvider`的子类，实现`onCreate()`, `query()`,`insert()`,`update()`,`delete()`和`getType()`方法
 2. 在`manifest`文件中注册该`ContentProvider`，声明其`authorities`
 
-### 实例
+### 自定义ContentProvider使用实例
 
 在此处我们创建一个App，用于提供数据，数据的格式定为`SQLite`。
 
@@ -126,6 +125,7 @@ Uri uri = Uri.parse("content://me.rorschach.contentproviderdemo.provider/insert"
 4. 产生一个`ContentProvider`的子类
 5. 在客户端中获得`ContentResolver`，执行相应的`CRUD`操作
 
+服务端
 ```
 public final class PersonContract {
 
@@ -325,6 +325,7 @@ public class PersonProvider extends ContentProvider {
 }
 ```
 
+客户端
 ```
     private ContentResolver mContentResolver =  getContentResolver();
 
@@ -434,7 +435,7 @@ public class PersonProvider extends ContentProvider {
     }
 ```
 
-值得注意的是，上述方式增加短信在Android4.4后失效，因为Android4.4之后只有系统默认的短信应用才能写短信到数据库中，具体信息见[官方博客](http://android-developers.blogspot.jp/2013/10/getting-your-sms-apps-ready-for-kitkat.html)。
+值得注意的是，上述增加短信的方式在Android4.4后失效，因为Android4.4之后只有系统默认的短信应用才能写短信到数据库中，具体信息见[官方博客](http://android-developers.blogspot.jp/2013/10/getting-your-sms-apps-ready-for-kitkat.html)。
 
 ## 使用ContentProvider读取和添加联系人
 

@@ -1,12 +1,11 @@
 ---
 layout:     post
-title:      "Android中的多线程下载和断点续传下载"
+title:      "Android中的多线程及断点续传下载"
 subtitle:   "HttpURLConnection实现"
 date:       2015-11-25 17:54:30
 author:     "Rorschach"
 header-img: "img/post-multi-download.jpg"
 tags:
-    - java
     - android
     - http
 ---
