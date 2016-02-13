@@ -23,7 +23,7 @@ facebook_username:  lei.huang.7739814
 # Build settings
 highlighter: rouge
 permalink: pretty
-paginate: 10
+paginate: 7
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
