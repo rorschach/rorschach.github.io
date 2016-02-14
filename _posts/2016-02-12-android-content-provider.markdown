@@ -29,10 +29,10 @@ tags:
     android:name="me.rorschach.contentproviderdemo.PersonProvider" />
 ```
 
-`ContentProvider`为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过以下代码在客户端中得到`ContentResolver`对象:
+`ContentProvider`为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过以下代码在`ContextWrapper`的子类，如`Activity`中得到`ContentResolver`对象:
 
 ```
-ContentResolver cr = ContextWrapper.getContentResolver();
+ContentResolver cr = getContentResolver();
 ```
 
 获得`ContentResolver`对象后，可以进行`CRUD`操作：
