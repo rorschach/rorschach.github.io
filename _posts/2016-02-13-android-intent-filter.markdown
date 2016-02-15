@@ -4,7 +4,7 @@ title:      "IntentFilter的匹配规则"
 subtitle:   "读书笔记"
 date:       2016-02-13 20:00:00
 author:     "Rorschach"
-header-img: "img/post-bg-stack.jpg"
+header-img: "img/post-bg-intent-filter.jpg"
 tags:
     - android
 ---
@@ -60,7 +60,6 @@ IntentFilter的过滤信息有:
 
 
 实例一
-
 ```
 <activity
     android:name=".SampleActivity">
@@ -89,7 +88,6 @@ IntentFilter的过滤信息有:
 另外，一个组件可以存在多个IntentFilter，只要能匹配其中任何一个就能够启动该`Activity`，例如：
 
 实例二
-
 ```
 <activity android:name="ShareActivity">
     <!-- This activity handles "SEND" actions with text data -->
