@@ -14,6 +14,7 @@ tags:
 Intent是Android系统中用于组件间通讯的桥梁，我们可以通过Intent进行组件间的信息传递，也可以用于启动其他组件，例如
 
 - 启动Activity
+
 ```
 public abstract void startActivity (Intent intent, Bundle options)      //Context
 
@@ -23,11 +24,13 @@ public void startActivityForResult (Intent intent, int requestCode, Bundle optio
 ```
 
 - 发送广播
+
 ```
 public abstract void sendBroadcast (Intent intent)      //Context
 ```
 
 - 启动服务
+
 ```
 public abstract ComponentName startService (Intent service)     //Context
 ```
