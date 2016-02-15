@@ -21,19 +21,23 @@ tags:
 
 一个应用要想访问`ContentProvider`来获得数据，必须通过`ContentResolver`对象。在需要访问数据的应用中获得`ContentResolver`对象，提供数据的应用中负责提供`ContentProvider`对象，获得`ContentResolver`对象之后这两个应用所属的进程间便自动建立了连接。
 
-要使得`ContentProvider`可以被访问，必须在提供数据的应用的`manifest`文件中声明权限，如：
+要使得`ContentProvider`可以被访问，必须在提供数据的应用的`manifest`文件中声明权限，如
+
 ```
-<provider
-    android:exported="true"
-    android:authorities="me.rorschach.contentproviderdemo.provider"
-    android:name="me.rorschach.contentproviderdemo.PersonProvider" />
+    <provider
+        android:exported="true"
+        android:authorities="me.rorschach.contentproviderdemo.provider"
+        android:name="me.rorschach.contentproviderdemo.PersonProvider" />
 ```
 
-`ContentProvider`为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过以下代码在`ContextWrapper`的子类，如`Activity`中得到`ContentResolver`对象:
+
+`ContentProvider`为持久化存储提供了基本的"CRUD" (create, retrieve, update, and delete) 操作。通过以下代码在`ContextWrapper`的子类，如在`Activity`中得到`ContentResolver`对象
+
 
 ```
 ContentResolver cr = getContentResolver();
 ```
+
 
 获得`ContentResolver`对象后，可以进行`CRUD`操作：
 
