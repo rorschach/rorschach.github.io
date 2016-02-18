@@ -42,6 +42,7 @@ ContentResolver cr = getContentResolver();
 获得`ContentResolver`对象后，可以进行`CRUD`操作：
 
 - insert
+
 ```
 public final @Nullable Uri insert(
     @NonNull Uri url, 
@@ -408,7 +409,9 @@ public class PersonProvider extends ContentProvider {
 ```
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.WRITE_SMS"/>
+```
 
+```
     private void getSms() {
         ContentResolver cr = getContentResolver();
         Uri uri = Uri.parse("content://sms/");
@@ -450,7 +453,9 @@ public class PersonProvider extends ContentProvider {
 ```
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+```
 
+```
     public void readContact(View view) {
         contactTv.setText("");
         Cursor contactsCursor = mContentResolver.query(
@@ -503,7 +508,7 @@ public class PersonProvider extends ContentProvider {
         cv = new ContentValues();
         cv.put("mimetype", "vnd.android.cursor.item/name");
         cv.put("raw_contact_id", maxId + 1);
-        cv.put("data1", "HuangYujie");
+        cv.put("data1", "HAHAHA");
         mContentResolver.insert(data, cv);
 
         contactsCursor.close();
