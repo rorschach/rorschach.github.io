@@ -143,7 +143,7 @@ IntentFilter的过滤信息有:
 />
 ```
 
-data由两部分组成,URI和mimetype,后者指的是媒体类型，如text/plain，video/*等，前者的结构如下：
+data由两部分组成,`URI`和`mimeType`,后者指的是媒体类型，如text/plain，video/*等，前者的结构如下：
 
 ```
 <scheme>://<host>:<port>/[<path>|<pathPrefix>|<pathPattern>]
