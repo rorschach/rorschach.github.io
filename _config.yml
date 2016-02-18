@@ -64,7 +64,7 @@ ga_track_id: 'UA-73402962-1'            # Format: UA-xxxxxx-xx
 
 
 # Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
+sidebar: false                           # whether or not using Sidebar.
 sidebar-about-description: "写代码 学设计 思考人生"
 sidebar-avatar: /img/avatar-rorschach.jpg     # use absolute URL, seeing it's used in both `/` and `/about/`
 
