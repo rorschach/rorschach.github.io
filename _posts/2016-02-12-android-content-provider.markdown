@@ -446,6 +446,65 @@ public class PersonProvider extends ContentProvider {
     }
 ```
 
+```
+public class MySms {
+
+    private String address;
+    private long date;
+    private int type;
+    private String body;
+
+    public MySms() {
+
+    }
+
+    public MySms(String address, long date, int type, String body) {
+        this.address = address;
+        this.date = date;
+        this.type = type;
+        this.body = body;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return "address:" + address + ", date:" + date
+                + ", type:" + type + ", body:" + body;
+    }
+}
+```
+
 值得注意的是，上述增加短信的方式在Android4.4后失效，因为Android4.4之后只有系统默认的短信应用才能写短信到数据库中，具体信息见[官方博客](http://android-developers.blogspot.jp/2013/10/getting-your-sms-apps-ready-for-kitkat.html)。
 
 ## 使用ContentProvider读取和添加联系人
@@ -456,6 +515,14 @@ public class PersonProvider extends ContentProvider {
 ```
 
 ```
+
+    private ContentResolver mContentResolver;
+    private static final Uri raw_contacts = Uri.parse("content://com.android.contacts/raw_contacts");
+
+    private static final Uri data = Uri.parse("content://com.android.contacts/data");
+
+    ...
+
     public void readContact(View view) {
         contactTv.setText("");
         Cursor contactsCursor = mContentResolver.query(
@@ -485,6 +552,12 @@ public class PersonProvider extends ContentProvider {
         contactsCursor.close();
         dataCursor.close();
         contactTv.setText(sb.toString());
+
+        // Or
+        
+        // Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;  
+        // Cursor cursor = getContentResolver().query(uri,  
+        //       new String[] { "display_name", "sort_key" }, null, null, "sort_key");  
     }
 
     public void writeContact(View view) {
