@@ -131,6 +131,7 @@ Uri uri = Uri.parse("content://me.rorschach.contentproviderdemo.provider/insert"
 5. 在客户端中获得`ContentResolver`，执行相应的`CRUD`操作
 
 服务端
+
 ```
 public final class PersonContract {
 
@@ -332,6 +333,7 @@ public class PersonProvider extends ContentProvider {
 ```
 
 客户端
+
 ```
     private ContentResolver mContentResolver =  getContentResolver();
 
