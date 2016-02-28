@@ -11,10 +11,6 @@ tags:
 ---
 
 
-####本文参考[http://blog.csdn.net/zhaokaiqiang1992](http://blog.csdn.net/zhaokaiqiang1992)
-####转载请注明
-[http://rorschach.github.io/2015/11/25/android-multi-breakpoint-download/](http://rorschach.github.io/2015/11/25/android-multi-breakpoint-download/)
-
 
 要在Android中实现多线程下载和断点续传下载，不需要其他框架，只需要使用Java和Android的API即可完成。可以简单的分为3个步骤：下载、多线程下载、断点续传。
 
@@ -809,6 +805,3 @@ tags:
             });
         }
     }
-
-
-未完待续.....
