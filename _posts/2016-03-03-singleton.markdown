@@ -2,7 +2,7 @@
 layout:     post
 title:      "也说单例模式"
 subtitle:   "设计模式探索"
-date:       2016-03-03 20:37:35
+date:       2016-03-02 20:37:35
 author:     "Rorschach"
 header-img: "img/post-multi-download.jpg"
 tags:
